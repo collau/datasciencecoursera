@@ -1,0 +1,30 @@
+read.csv("hw1_data.csv") #open csv table
+
+x<-read.csv("hw1_data.csv") # x becomes the table
+
+names(x) # Q11 Column Names of Dataset
+
+x[1:2,] # Q12 First two rows of Data frame
+
+nrow(x) # Q13 Number of rows (observations) in data frame
+
+tail(x,2) # Q14 Last 2 rows of data frame
+
+x[47,] # Q15 Extract individual row of data frame
+
+sum(is.na(x$Ozone)) # Q16 Number of missing values in Ozone column of data frame
+
+mean(x$Ozone,na.rm=T) # Q17 Mean of values of Ozone column in dataset, excluding missing values
+
+## Question 18
+y<-subset(x,Ozone>31&Temp>90) # Subset of observations where Ozone values > 31 and Temp > 90
+mean(y$Solar.R) # mean of Solar.R values of subset y
+
+## Question 19
+y<-subset(x,Month==6) # Subset of observations where Month = 6
+# '=' is <-, '==' defines equal value
+mean(y$Temp) # mean of Temp values in subset y
+
+## Question 20
+y<-subset(x,Month==5) # Subset of observations where Month = 5
+max(y$Ozone,na.rm=T) # Maximum Ozone value where Month = 5 (May), excluding NA values
